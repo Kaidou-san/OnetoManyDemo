@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row">
+    <div class="col-6">
+        <partial name="_ShipPartial"/>
+        <partial name="_PiratePartial"/>
+        <hr>
+        <partial name="_PetPartial"/>
+    </div>
+    <div class="col-6">
+        <h1>All Ships</h1>
+        <table class ="table table-striped">
+            <tr>
+                <th>Ship Name</th>
+            </tr>
+            @{
+                foreach(Ship s in ViewBag.AllShips){
+                    <tr>
+                        <td>@s.ShipName</td>
+                    </tr>
+                }
+            }
+        </table>
+        <h1>All Pirates</h1>
+        <table class ="table table-striped">
+            <tr>
+                <th>Pirate Name</th>
+                <th>Pirate Position</th>
+                <th>Ship Name</th>
+            </tr>
+            @{
+                foreach(Pirate p in ViewBag.AllPirates){
+                    <tr>
+                        <td>@p.Name</td>
+                        <td>@p.Position</td>
+                        <td>@p.Ship.ShipName</td>
+                    </tr>
+                }
+            }
+        </table>
+        <h1>All Pets</h1>
+        <table class ="table table-striped">
+            <tr>
+                <th>Pet Name</th>
+                <th>Species</th>
+                <th>Trick</th>
+                <th>Owner</th>
+            </tr>
+            @{
+                foreach(Pet p in ViewBag.AllPets){
+                    <tr>
+                        <td>@p.PetName</td>
+                        <td>@p.Species</td>
+                        <td>@p.Trick</td>
+                        <td>@p.Owner.Name</td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+</div>
